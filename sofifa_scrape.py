@@ -37,7 +37,6 @@ def scrape_data(url_base, max_offset):
 
                     # Extract profile link
                     profile_link = columns[1].find('a')['href']
-                    full_profile_link = f'https://sofifa.com{profile_link}'  # Concatenate the base URL
 
                     player_data = {
                         'LastName': name_parts[0],
@@ -51,7 +50,7 @@ def scrape_data(url_base, max_offset):
                         'Total Stats': columns[8].text.strip(),
                         'Playing Positions': playing_positions,
                         'Contract': contract_years,
-                        'Profile Link': full_profile_link  # Use the full profile link
+                        'Profile Link': profile_link  # Add the profile link to the dictionary
                     }
 
                     all_player_data.append(player_data)
